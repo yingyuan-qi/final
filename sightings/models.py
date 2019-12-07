@@ -4,7 +4,7 @@ from django.utils.translation import gettext as _
 class Sightings(models.Model):
     latitude = models.FloatField(default=0.0)
     longitude = models.FloatField(default=0.0)
-    unique_squirrel_id = models.CharField(max_length=100)
+    unique_squirrel_id = models.CharField(max_length=100, primary_key=True)
     AM = 'AM'
     PM = 'PM'
     SHIFT_CHOICES = (

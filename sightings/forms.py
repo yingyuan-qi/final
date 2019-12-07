@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 
-form .models import Sightings
+from .models import Sightings
 
 class SightingsForm(ModelForm):
     class Meta:
