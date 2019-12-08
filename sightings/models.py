@@ -16,7 +16,7 @@ class Sightings(models.Model):
             choices=SHIFT_CHOICES,
             default='AM',
     )
-    date=models.DateField('date')
+    date=models.DateField(help_text=_('Date'), null=True, blank=True,)
     ADULT = 'Adult'
     JUVENILE = 'Juvenile'
     AGE_CHOICES = (
