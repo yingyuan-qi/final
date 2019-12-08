@@ -15,7 +15,7 @@ class Command(BaseCommand):
         for item in data:
             s = Sightings(
                 latitude=item['Y'],
-                longitude=item['X'],
+                longitude=item['\ufeffX'],
                 unique_squirrel_id=item['Unique Squirrel ID'],
                 shift=item['Shift'],
                 date=item['Date'],
@@ -32,10 +32,10 @@ class Command(BaseCommand):
                 kuks=item['Kuks'],
                 quaas=item['Quaas'],
                 moans=item['Moans'],
-                tail_flags=item['Tail Flags'],
-                tail_twitches=item['Tail Twitches'],
+                tail_flags=item['Tail flags'],
+                tail_twitches=item['Tail twitches'],
                 approaches=item['Approaches'],
                 indifferent=item['Indifferent'],
-                runs_from=item['Runs From'],
+                runs_from=item['Runs from'],
             )
             s.save()
