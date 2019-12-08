@@ -47,3 +47,9 @@ def add_squirrel(request):
         'form': form,
     }
     return render(request, 'sightings/edit.html', context)
+
+def stats(request):
+    context = {
+            'stats': stats,
+    }
+    return render(request, 'sightings/stats.html', context)
