@@ -6,8 +6,9 @@ from .models import Sightings
 from .forms import SightingsForm
 
 def display_map(request):
+    sightings = Sightings.objects.all()[:50]
     context = {
-            'map':map,
+            'sightings':sightings,
     }
     return render(request, 'sightings/map.html', context)
 
