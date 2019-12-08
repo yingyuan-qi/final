@@ -7,8 +7,9 @@ from .forms import SightingsForm
 from django.db.models import Avg, Max, Min
 
 def display_map(request):
+    sightings = Sightings.objects.all()[:50]
     context = {
-            'map':map,
+            'sightings':sightings,
     }
     return render(request, 'sightings/map.html', context)
 
