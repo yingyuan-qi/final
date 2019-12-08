@@ -4,6 +4,7 @@ from django.http import HttpResponse
 
 from .models import Sightings
 from .forms import SightingsForm
+from django.db.models import Avg, Max, Min
 
 def display_map(request):
     context = {
@@ -49,6 +50,19 @@ def add_squirrel(request):
     return render(request, 'sightings/edit.html', context)
 
 def stats(request):
+    stats1=Sightings.objects.filter(primary_fur_color='Gray').count()
+    stats2=Sightings.objects.all().aggregate(Avg('latitude'))
+    stats3=Sightings.objects.all().aggregate(Max('latitude'))
+    stats4=Sightings.objects.filter(age='Juvenile').count()
+    stats5=Sightings.objects.filter(age='Adult').count()
+    context={
+            'Stat1':stats1,
+            'Stat2':stats2,
+            'Stat3':stats3,
+            'Stat4':stats4,
+            'Stat5':stats5,
+            }
+
     context = {
             'stats': stats,
     }
