@@ -20,21 +20,6 @@ def all_squirrels(request):
     }
     return render(request, 'sightings/sightings.html', context)
 
-def update_squirrel(request, unique_squirrel_id):
-    sighting = Sightings.objects.get(pk=unique_squirrel_id)
-    if request.method == 'POST':
-        # check form data
-        form = SightingsForm(request.POST, instance=sighting)
-        if form.is_valid():
-            form.save()
-            return redirect(f'/sightings/{unique_suqirrel_id}')
-    else:
-        form = SightingsForm(instance=sighting)
-    context = {
-            'form': form,
-    }
-    return render(request, 'sightings/edit.html', context)
-
 def add_squirrel(request):
     if request.method == 'POST':
         # check form data
@@ -63,8 +48,20 @@ def stats(request):
             'Stat4':stats4,
             'Stat5':stats5,
             }
-
-    context = {
-            'stats': stats,
-    }
     return render(request, 'sightings/stats.html', context)
+
+def update_squirrel(request, unique_squirrel_id):
+    sighting = Sightings.objects.get(pk=unique_squirrel_id)
+    if request.method == 'POST':
+        # check form data
+        form = SightingsForm(request.POST, instance=sighting)
+        if form.is_valid():
+            form.save()
+            return redirect(f'/sightings/{unique_suqirrel_id}')
+    else:
+        form = SightingsForm(instance=sighting)
+    context = {
+            'form': form,
+    }
+    return render(request, 'sightings/edit.html', context)
+
