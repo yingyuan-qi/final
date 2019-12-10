@@ -1,3 +1,6 @@
+:chipmunk:
+# Squirrel Sightings Project
+
 ## Project Introduction
 
 This project builds an app that can keep track of all the known squirrels in Central Park. The application imports the 2018 Central Park Squirrel Census data and allows users add, update, and view squirrel data. 
